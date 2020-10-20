@@ -1,4 +1,4 @@
-# Develop Vue with Hot-reload [ Laravel-Mix ]
+# Develop Vue with Hot-reload [ Laravel-Mix ][ Laragon ]
 
 Run :
 ```bash
