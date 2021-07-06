@@ -41,9 +41,9 @@ For the Web Auth Page, you can:
 
 #### Config
 
-```diff config/l5-swagger.php
-// config/l5-swagger.php
+Modify config/l5-swagger.php
 
+```diff config/l5-swagger.php
 'defaults'=> [
 	// ...,
     'middleware' => [
@@ -63,9 +63,9 @@ For the Web Auth Page, you can:
 
 #### Web Route
 
-```php routes/web.php
-// routes/web.php
+Modify routes/web.php
 
+```php routes/web.php
 // without auth
 Route::get('/watcher',[App\Http\Controllers\HomeController::class, 'showLoginForm'])->name('login');
 Route::post('/watcher',[App\Http\Controllers\HomeController::class, 'login']);
@@ -80,10 +80,12 @@ Route::get('/{any?}',[App\Http\Controllers\HomeController::class, 'index'])->whe
 
 #### Controller
 
+Modified HomeController.php
+
 ```diff HomeController.php
 namespace App\Http\Controllers;
 
-- use Illuminate\Http\Request;
++ use Illuminate\Http\Request;
 + use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class HomeController extends Controller
@@ -103,9 +105,9 @@ class HomeController extends Controller
 
 #### Views
 
-```php layouts/app.blade.php
-// layouts/app.blade.php
+Create layouts/app.blade.php & home.blade.php
 
+```php layouts/app.blade.php
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -149,8 +151,6 @@ class HomeController extends Controller
 ```
 
 ```php home.blade.php
-// home.blade.php
-
 @extends('layouts.app')
 
 @section('content')
@@ -191,6 +191,8 @@ class HomeController extends Controller
 ```
 
 #### Extra - CheckRole Middleware
+
+Modified Middleware/CheckRole.php
 
 ```diff
 -    return response()->json([
